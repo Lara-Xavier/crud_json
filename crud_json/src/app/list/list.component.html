@@ -1,0 +1,88 @@
+<nav class="navbar bg-light">
+<div class="container">
+    <h2>angular crud operation</h2>
+</div>
+<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Emplyees</button>
+</nav>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div style="background-color: yellowgreen" class="modal-header">
+          <h5 style="color:white" class="modal-title" id="exampleModalLabel">ADD EMPLOYEE DATA</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="employeeform">
+                <div class="form-group-mb-2">
+                  <label for="exampleInputEmail1">Enter Name</label>
+                  <input type="text" class="form-control" formControlName="name" placeholder="Enter name">
+                
+                </div>
+                <div class="form-group-mb-2">
+                    <label for="exampleInputEmail1">Enter city</label>
+                    <input type="text" class="form-control" formControlName="city" placeholder="Enter city">
+                  
+                  </div>
+                  <div class="form-group-mb-2">
+                    <label for="exampleInputEmail1">Enter email</label>
+                    <input type="text" class="form-control" formControlName="email" placeholder="Enter email">
+                  </div>
+                  <div class="form-group-mb-2">
+                    <label for="exampleInputEmail1">Enter postcode</label>
+                    <input type="text" class="form-control" formControlName="postcode" placeholder="Enter postcode">
+                  </div>
+                  <div class="form-group-mb-2">
+                    <label for="exampleInputEmail1">Contact number</label>
+                    <input type="number" class="form-control" formControlName="cnumber" placeholder="Contact number">
+                  </div>
+               
+              
+          
+              </form>
+        </div>
+        <div style="background-color: yellowgreen" class="modal-footer">
+          <button type="button"  class="btn btn-danger" data-bs-dismiss="modal">cancel</button>
+          <button (click)="AddEmployee(this.employeeform.value)" [disabled]="this.employeeform.invalid" type="button" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid mt-3">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">City</th>
+            <th scope="col">Email</th>
+            <th scope="col">Postcode</th>
+            <th scope="col">Contact No</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor=" let item of data ">
+           
+            <td>{{ item.name }}</td>
+            <td>{{ item.city }}</td>
+            <td>{{ item.email}}</td>
+            <td>{{ item.postcode}}</td>
+            <td>{{ item.cnumber}}</td>
+            <td><button routerLink="/update/{{item.id}}" data-toggle="modal" class="btn btn-warning">Edit</button>&nbsp;
+                <button (click)="deleteemployee(item.id)" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+         
+        </tbody>
+      </table>
+  </div>

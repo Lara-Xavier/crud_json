@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "name": "sana",
+      "city": "coventry",
+      "email": "laraxavier012@gmail.com",
+      "postcode": "CV6 5FS",
+      "cnumber": 7442654773,
+      "id": 5
+    },
+    {
+      "name": "glen",
+      "city": "coventry",
+      "email": "glen012@gmail.com",
+      "postcode": "CV6 5FS",
+      "cnumber": 7776651304,
+      "id": 6
+    }
+  ]
+}
